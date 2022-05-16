@@ -65,3 +65,4 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
+

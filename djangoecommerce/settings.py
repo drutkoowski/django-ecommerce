@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     "carts",
+    "orders",
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "ecomercedjango@gmail.com"
 EMAIL_HOST_PASSWORD = "Django123@"
 EMAIL_USE_TLS = True
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
