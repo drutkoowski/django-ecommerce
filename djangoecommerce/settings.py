@@ -27,6 +27,7 @@ DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = ['djangoecommerce-env.eba-wpiunzin.us-west-2.elasticbeanstalk.com']
 
+
 # Application definition
 
 INSTALLED_APPS = [
