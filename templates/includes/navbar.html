@@ -28,13 +28,14 @@
 	<div class="container">
 
             <nav class="navbar navbar-expand-lg navbar-primary bg-primary rounded"> <a class="navbar-brand text-light" href="{% url 'home' %}" data-abc="true">Django Ecommerce</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="navbarColor02" style="@media (min-width: 1200px)  {
+            <a href="{% url "store" %}" class="btn btn-outline-primary text-light ml-lg-2 p-sm-0 p-0">Products</a> </li>
+                <div class="collapse navbar-collapse" id="navbarColor02" style="@media (min-width: 1200px)  {
             margin-left: 15%!important;
             }">
                 <ul class="navbar-nav mr-auto text-light">
                     <li class="nav-item mt-2 p-0">
                         <div class="category-wrap dropdown d-inline-block float-left ">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-primary-light dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bars"></i> All category
                             </button>
                             <div class="dropdown-menu">
@@ -46,12 +47,11 @@
                         </div>  <!-- category-wrap.// -->
                     </li>
 
-                    <li class="nav-item p-0 mt-2 ml-lg-2">
-                        <a href="{% url "store" %}" class="btn btn-outline-primary text-light ml-lg-2 p-sm-0">Store</a> </li>
+
                     <li class="nav-item mt-2 ml-lg-2">
                             {% if user.id is None %}
                             <div class="widget-header ">
-                                <small class="title text-muted text-light">Welcome guest!</small>
+                                <small class="title text-light">Welcome guest!</small>
                                 <div>
                                     <a class="text-light" href="{% url "login" %}">Sign in</a> <span class="dark-transp"> | </span>
                                     <a class="text-light" href="{% url "register" %}"> Register</a>
