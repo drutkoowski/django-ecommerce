@@ -1,5 +1,14 @@
 // some scripts
-
+$(function(){
+    $(document).ready(function(){
+        var height = $(window).height();
+var width = $(window).width();
+var header =$('header.site-navbar').height();
+var finalwidth =height-header;
+// alert(finalwidth);
+$('.carousel-item img').css('height',''+finalwidth+'px');
+});
+    });
 // jquery ready start
 $(document).ready(function() {
 	// jQuery code

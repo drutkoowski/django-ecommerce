@@ -1,37 +1,29 @@
 {% load static %}
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 <header class="section-header">
-<nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
-<div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTop4">
-    <ul class="navbar-nav mr-auto">
-    	<li class="nav-item dropdown">
-		 	<a href="https://github.com/drutkoowski" class="nav-link">Github <i class="fa-brands fa-github"></i></a>
+<div class="row">
+      <div class="col-lg-5 col-md-12 col-sm-12 text-lg-right text-md-center text-sm-center text-xs-center mt-auto mb-auto">
+        <a href="https://github.com/drutkoowski" style="font-size: 1.5rem">Github <i class="fa-brands fa-github"></i></a>
+      </div>
 
-		</li>
-		<li class="nav-item dropdown">
-			<a href="https://www.facebook.com/drutkoowski/" class="nav-link">Facebook <i class="fa-brands fa-facebook"></i> </a>
-		</li>
-    </ul>
-    <ul class="navbar-nav">
-		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
-	</ul> <!-- list-inline //  -->
-  </div> <!-- navbar-collapse .// -->
-</div> <!-- container //  -->
-</nav>
+        <div class="col-lg-2 col-md-12 col-sm-12">
+             <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" style="height: 100%;box-sizing: border-box;max-width: 100%;max-height: 80%;width: 100%;">
+             </a>
+        </div>
+
+        <div class="col-lg-5 col-md-12 col-sm-12 text-lg-left text-md-center text-sm-center text-xs-center mt-auto mb-auto">
+            <a href="mailto:d.rutkowski2000@gmail.com" target="_blank" style="font-size: 1.5rem">Email <i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+</div>
 
 <section class="">
 	<div class="container">
 
             <nav class="navbar navbar-expand-lg navbar-primary bg-primary rounded"> <a class="navbar-brand text-light" href="{% url 'home' %}" data-abc="true">Django Ecommerce</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <a href="{% url "store" %}" class="btn btn-outline-primary text-light ml-lg-2 p-sm-0 p-0">Products</a> </li>
-                <div class="collapse navbar-collapse" id="navbarColor02" style="@media (min-width: 1200px)  {
-            margin-left: 15%!important;
-            }">
+                <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto text-light">
                     <li class="nav-item mt-2 p-0">
                         <div class="category-wrap dropdown d-inline-block float-left ">
@@ -39,7 +31,7 @@
                                 <i class="fa fa-bars"></i> All category
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-light" href="{% url "store" %}">All products</a>
+                                <a class="dropdown-item text-primary-light" href="{% url "store" %}">All products</a>
                                 {% for category in links %}
                                 <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
                                 {% endfor %}
@@ -48,7 +40,7 @@
                     </li>
 
 
-                    <li class="nav-item mt-2 ml-lg-2">
+                    <li class="nav-item mt-2 ml-lg-4">
                             {% if user.id is None %}
                             <div class="widget-header ">
                                 <small class="title text-light">Welcome guest!</small>
@@ -59,7 +51,7 @@
                             </div>
                             {% else %}
                                 <div class="widget-header">
-                                <small class="title text-muted">Welcome {{ user.first_name |title}}!</small>
+                                <small class="title">Welcome {{ user.first_name |title}}!</small>
                                 <div>
                                     <a class="text-light" href="{% url "dashboard" %}">Dashboard</a> <span class="dark-transp"> | </span>
                                     <a class="text-light" href="{% url "logout" %}"> Logout</a>
