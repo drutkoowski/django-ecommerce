@@ -1,7 +1,8 @@
+
 from django.shortcuts import render, get_object_or_404, redirect
 
 from orders.models import OrderProduct
-from .models import Product, ReviewRating, ProductGallery
+from .models import Product, ReviewRating, ProductGallery, Variation
 from category.models import Category
 from carts.models import CartItem
 from carts.views import _cart_id
@@ -16,6 +17,21 @@ from django.contrib import messages
 def store(request, category_slug=None):
     categories = None
     products = None
+    if request.method == "POST":
+        size = request.POST['sizes']
+        price_range_min = request.POST['price-range-min']
+        price_range_max = request.POST['price-range-max']
+        products = Product.objects.filter(variation__variation_category__iexact="size", variation__variation_value__iexact=size, price__range=[price_range_min,price_range_max]).order_by("id")
+        paginator = Paginator(products, per_page=6)
+        page = request.GET.get("page")
+        paged_products = paginator.get_page(page)
+        product_count = products.count()
+        context = {
+            "products": paged_products,
+            "product_count": product_count,
+
+        }
+        return render(request, "store/store.html", context)
     if category_slug != None:
         categories = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=categories, is_available=True)
