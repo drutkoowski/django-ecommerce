@@ -31,8 +31,9 @@ def register(request):
             password = form.cleaned_data["password"]
             username = email.split("@", 1)[0]
             user = Account(first_name=first_name, last_name=last_name, email=email,
-                           password=password, username=username)
+                            username=username)
             user.phone_number = phone_number
+            user.set_password(password)
             user.save()
 
             # create user profile
